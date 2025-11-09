@@ -1,1 +1,133 @@
-<h2>Welcome, {{ user.username }}!</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home — UniTrack</title>
+  <style>
+    :root {
+      --blue-600: #2563eb;
+      --blue-500: #3b82f6;
+      --bg1: #4c6ef5;
+      --bg2: #5b7cfa;
+      --text-dark: #0f172a;
+      --text-light: #f8fafc;
+      --muted: #94a3b8;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
+      background: linear-gradient(135deg, var(--bg1), var(--bg2));
+      color: var(--text-dark);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .hero {
+      background: white;
+      border-radius: 30px;
+      padding: 60px 80px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+      text-align: center;
+      max-width: 700px;
+      margin: 0 20px;
+      animation: fadeIn 1s ease-out;
+    }
+
+    h1 {
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--blue-600);
+      margin-bottom: 10px;
+      letter-spacing: -0.5px;
+    }
+
+    h2 {
+      font-size: 22px;
+      color: var(--text-dark);
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 17px;
+      line-height: 1.6;
+      color: #475569;
+      max-width: 580px;
+      margin: 0 auto;
+    }
+
+    .highlight {
+      color: var(--blue-500);
+      font-weight: 600;
+    }
+
+    /* Decorative circles */
+    .circle {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.08);
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .circle.one {
+      width: 180px;
+      height: 180px;
+      top: 10%;
+      left: 12%;
+      animation-delay: 0s;
+    }
+
+    .circle.two {
+      width: 250px;
+      height: 250px;
+      bottom: 8%;
+      right: 10%;
+      animation-delay: 2s;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+
+    /* Mobile friendly */
+    @media (max-width: 768px) {
+      .hero {
+        padding: 40px 30px;
+      }
+      h1 {
+        font-size: 30px;
+      }
+      p {
+        font-size: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="circle one"></div>
+  <div class="circle two"></div>
+
+  <section class="hero">
+    <h1>Welcome back to <span class="highlight">UniTrack</span></h1>
+    <h2>Your personal academic tracker</h2>
+    <p>
+      Plan smarter, stay on top of your <span class="highlight">assignments</span>, track 
+      your <span class="highlight">attendance</span>, monitor your <span class="highlight">GPA progress</span>, 
+      and never miss a deadline again.  
+      <br><br>
+      Make every semester your most productive yet 🎓
+    </p>
+  </section>
+</body>
+</html>
