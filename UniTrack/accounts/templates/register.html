@@ -1,9 +1,153 @@
-<h2>Register</h2>
-<form method="post">
-  {% csrf_token %}
-  <input type="text" name="email" placeholder="E-mail"><br>
-  <input type="text" name="username" placeholder="Username"><br>
-  <input type="password" name="password" placeholder="Password"><br>
-  <button type="submit">Register</button>
-</form>
-<a href="/login/">Login</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register — UniTrack</title>
+  <style>
+    body {
+      font-family: Inter, "Segoe UI", sans-serif;
+      background: linear-gradient(135deg, #4c6ef5, #5b7cfa);
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      background: white;
+      border-radius: 25px;
+      padding: 40px 50px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+      width: 420px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 26px;
+      font-weight: 800;
+      color: #1e3a8a;
+      margin-bottom: 8px;
+    }
+
+    .tabs {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      margin-bottom: 25px;
+      font-weight: 600;
+    }
+
+    .tabs a {
+      text-decoration: none;
+      color: #6b7280;
+      position: relative;
+      font-size: 16px;
+    }
+
+    .tabs a.active {
+      color: #2563eb;
+    }
+
+    .tabs a.active::after {
+      content: "";
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: #2563eb;
+      border-radius: 4px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    label {
+      text-align: left;
+      font-weight: 600;
+      color: #374151;
+    }
+
+    input {
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid #e5e7eb;
+      font-size: 15px;
+      outline: none;
+      transition: 0.2s;
+    }
+
+    input::placeholder {
+      color: #a0aec0;
+    }
+
+    input:focus {
+      border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+    }
+
+    .btn-primary {
+      background-color: #2563eb;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn-primary:hover {
+      background-color: #1e40af;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border: 2px solid #dbeafe;
+      color: #2563eb;
+      padding: 12px;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn-secondary:hover {
+      background: #eef2ff;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome to UniTrack</h1>
+    <div class="tabs">
+      <a href="{% url 'login' %}">Login</a>
+      <a href="#" class="active">Sign upф</a>
+    </div>
+
+    <form method="post">
+      {% csrf_token %}
+      <label for="email">Email</label>
+      <input id="email" name="email" type="email" placeholder="Enter your email" required>
+
+      <label for="username">Username</label>
+      <input id="username" name="username" type="text" placeholder="Enter your username" required>
+
+      <label for="password">Password</label>
+      <input id="password" name="password" type="password" placeholder="Create a strong password" required>
+
+      <button type="submit" class="btn-primary">Sign up</button>
+      <a href="{% url 'login' %}">
+        <button type="button" class="btn-secondary">Already have an account</button>
+      </a>
+    </form>
+  </div>
+</body>
+</html>
